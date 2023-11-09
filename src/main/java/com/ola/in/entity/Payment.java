@@ -31,18 +31,13 @@ public class Payment {
 	
 	@Column(name="status")
 	private String status;
-<<<<<<< HEAD
 
 	
 	@Column(name="customer_id")
 	private String customerId;
 	
-=======
-	
-	@Column(name="customer_id")
-	private String customerId;
+
 		
->>>>>>> branch 'master' of https://github.com/prashanthgattucg70/OnlineLaundryApplication.git
 	@OneToOne (cascade = CascadeType.ALL, optional=true)
 	@JoinColumn(name="id")
 	private Card card;

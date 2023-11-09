@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 
 
 import com.ola.in.entity.Customer;
@@ -12,16 +11,6 @@ import com.ola.in.exceptions.NotFoundException;
 import com.ola.in.jpa.ICustomerJpa;
 
 import org.springframework.stereotype.Repository;
-
-
-=======
-import org.springframework.stereotype.Repository;
-
-import com.ola.in.entity.Customer;
-import com.ola.in.exceptions.NotFoundException;
-import com.ola.in.jpa.ICustomerJpa;
->>>>>>> branch 'master' of https://github.com/prashanthgattucg70/OnlineLaundryApplication.git
-
 
 @Repository
 public class CustomerRepository implements ICustomerRepository{

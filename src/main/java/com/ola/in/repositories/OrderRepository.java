@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 
 
 import com.ola.in.entity.Order;
@@ -13,14 +12,12 @@ import com.ola.in.jpa.IOrderJpa;
 
 
 import org.springframework.stereotype.Repository;
-=======
+
 import org.springframework.stereotype.Repository;
 
 import com.ola.in.entity.Order;
 import com.ola.in.exceptions.NotFoundException;
 import com.ola.in.jpa.IOrderJpa;
->>>>>>> branch 'master' of https://github.com/prashanthgattucg70/OnlineLaundryApplication.git
-
 
 @Repository
 public class OrderRepository implements IOrderRepository{
