@@ -31,6 +31,9 @@ public class Payment {
 	
 	@Column(name="status")
 	private String status;
+	
+	@Column(name="customer_id")
+	private String customerId;
 		
 	@OneToOne (cascade = CascadeType.ALL, optional=true)
 	@JoinColumn(name="id")

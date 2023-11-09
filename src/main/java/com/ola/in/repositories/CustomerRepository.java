@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.ola.in.entity.Customer;
 import com.ola.in.exceptions.NotFoundException;
 import com.ola.in.jpa.ICustomerJpa;
 
+
+@Repository
 public class CustomerRepository implements ICustomerRepository{
 
 	@Autowired
