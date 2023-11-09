@@ -9,7 +9,7 @@ public interface ICustomerItemService {
 	CustomerItem removeItem(long id)throws Exception;
 	CustomerItem updateItem(long id,CustomerItem item)throws Exception;
 	CustomerItem getItem(long id)throws Exception;
-	List<CustomerItem> getItemsByCostumer(String customerId)throws Exception;
+	List<CustomerItem> getItemsByCustomer(String customerId)throws Exception;
 	
 
 }
