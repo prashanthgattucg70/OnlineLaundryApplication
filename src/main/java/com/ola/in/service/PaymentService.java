@@ -44,7 +44,7 @@ public class PaymentService implements IPaymentService {
 	
 	//Get all payment details
 	@Override
-	public List<Payment> getPaymentDetails() {
+	public List<Payment> getAllPaymentDetails() {
  
 		return paymentRepository.getAllPaymentDetails();
 	}
