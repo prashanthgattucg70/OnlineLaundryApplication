@@ -43,7 +43,7 @@ public class CustomerItemService implements ICustomerItemService  {
 	
 	//Get items by customer
 	@Override
-	public List<CustomerItem> getItemsByCostumer(String customerId) throws Exception {
+	public List<CustomerItem> getItemsByCustomer(String customerId) throws Exception {
 		//("customerItem service - getItemsByCustomer Customer method executed");
 		return customerItemRepository.getItemsByCustomer(customerId);
 	}
