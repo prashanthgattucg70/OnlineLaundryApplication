@@ -1,37 +1,38 @@
-package com.ola.in.repositories;
+package com.ola.in.service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.ola.in.entity.Booking;
 import com.ola.in.entity.Customer;
 import com.ola.in.exceptions.NotFoundException;
-import com.ola.in.jpa.IBookingJpa;
-import com.ola.in.jpa.ICustomerJpa;
-@Repository
-public class BookingRepository implements IBookingRepository{
+import com.ola.in.repositories.IBookingRepository;
+import com.ola.in.repositories.ICustomerRepository;
+
+
+@Service
+public class IBookingServiceImpl implements IBookingService {
+	@Autowired
+	private IBookingRepository bookingRepository;
 	
 	@Autowired
-	private IBookingJpa bookingjpa;
-	
-	@Autowired
-	private ICustomerJpa customerjpa;
+	private ICustomerRepository customerRepository;
 
 	@Override
 	public Booking addBooking(Booking booking) {
-		bookingjpa.save(booking);
+		bookingRepository .save(booking);
 		return null;
 	}
 
 	public Booking removeBooking(long bookingId) throws Exception{
-		Optional<Booking> ob=bookingjpa.findById(bookingId);
+		Optional<Booking> ob=bookingRepository .findById(bookingId);
 		if(ob.isPresent()) {
 			Booking b= ob.get();
-			bookingjpa.delete(b);
+			bookingRepository .delete(b);
 			return b;
 		}
 		else
@@ -39,7 +40,7 @@ public class BookingRepository implements IBookingRepository{
 	}
 	
 	public Booking updateBooking(long bookingId, Booking booking) throws NotFoundException{
-Optional<Booking> ob = bookingjpa.findById(bookingId);
+		Optional<Booking> ob = bookingRepository .findById(bookingId);
 		
 		if(ob.isPresent()) {
 			
@@ -47,7 +48,7 @@ Optional<Booking> ob = bookingjpa.findById(bookingId);
 		b.setBookingDate(booking.getBookingDate());
 		b.setBookingTime(booking.getBookingTime());
 		b.setServiceType(booking.getServiceType());
-		bookingjpa.save(b);
+		bookingRepository .save(b);
 		return b;
 	}
 		else
@@ -55,7 +56,7 @@ Optional<Booking> ob = bookingjpa.findById(bookingId);
 	}
 	
 	public Booking getBooking(long bookingId) throws Exception {
-		Optional<Booking> ob = bookingjpa.findById((bookingId));
+		Optional<Booking> ob = bookingRepository .findById((bookingId));
 		if(ob.isPresent()) {
 			Booking b=ob.get();
 			return b;
@@ -66,22 +67,22 @@ Optional<Booking> ob = bookingjpa.findById(bookingId);
 	}
 	
 	public List<Booking> getAllBookings(){
-		List<Booking> b=bookingjpa.findAll();
-		return b;
+		return bookingRepository .findAll();
 	}
 	
 	public List<Booking> getBookingsByDate(LocalDate date){
-		List<Booking> b = bookingjpa.findByBookingDate(date);
-		return b;
+		return bookingRepository .findByBookingDate(date);
 	}
 	
 	public List<Booking> getBookingsByCustomer(String customerId) throws Exception{
-		Optional<Customer> oc = customerjpa.findById(customerId);
+		Optional<Customer> oc = customerRepository .findById(customerId);
 		if(oc.isPresent()) {
-			return bookingjpa.findByCustomerDetails(customerId);
+			return bookingRepository .findByCustomerDetails(customerId);
 		}
 		else 
 			throw new NotFoundException("customer id is not valid");
 		
 	}
+
+	
 }

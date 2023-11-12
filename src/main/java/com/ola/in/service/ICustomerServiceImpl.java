@@ -1,33 +1,31 @@
-package com.ola.in.repositories;
+package com.ola.in.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import com.ola.in.entity.Customer;
 import com.ola.in.exceptions.NotFoundException;
-import com.ola.in.jpa.ICustomerJpa;
+import com.ola.in.repositories.ICustomerRepository;
 
-import org.springframework.stereotype.Repository;
 
-@Repository
-public class CustomerRepository implements ICustomerRepository{
-
+@Service
+public class ICustomerServiceImpl implements ICustomerService{
 	@Autowired
-	private ICustomerJpa customerjpa;
+	private ICustomerRepository customerRepository;
 	
 	public Customer addCustomer(Customer customer) {
-		customerjpa.save(customer);
+		customerRepository.save(customer);
 		return customer;
 	}
 	
 	public Customer removeCustomer(String custId) throws NotFoundException {
-		Optional<Customer> oc = customerjpa.findById(custId);
+		Optional<Customer> oc = customerRepository.findById(custId);
 		if(oc.isPresent()) {
 			Customer c = oc.get();
-			customerjpa.delete(c);
+			customerRepository.delete(c);
 			return c;
 		}
 		else
@@ -36,7 +34,7 @@ public class CustomerRepository implements ICustomerRepository{
 	}
 	
 	public Customer updateCustomer(String custId, Customer customer) throws NotFoundException {
-		Optional<Customer> oc = customerjpa.findById(custId);
+		Optional<Customer> oc = customerRepository.findById(custId);
 		
 		if(oc.isPresent()) {
 			
@@ -47,7 +45,7 @@ public class CustomerRepository implements ICustomerRepository{
 			c.setEmail(customer.getEmail());
 			c.setDob(customer.getDob());
 			c.setContactNo(customer.getContactNo());
-			customerjpa.save(c);
+			customerRepository.save(c);
 			return c;
 		}
 		else
@@ -56,7 +54,7 @@ public class CustomerRepository implements ICustomerRepository{
 	}
 	
 	public Customer getCustomer(String custId) throws Exception {
-		Optional<Customer> oc = customerjpa.findById(custId);
+		Optional<Customer> oc = customerRepository.findById(custId);
 		if(oc.isPresent()) {
 			Customer c=oc.get();
 			return c;
@@ -67,8 +65,8 @@ public class CustomerRepository implements ICustomerRepository{
 	}
 	
 	public List<Customer> getAllCustomers(){
-		List<Customer> listCustomer = customerjpa.findAll();
-		return listCustomer;
+		/*List<Customer> listCustomer = customerRepository.findAll();
+		return listCustomer;*/
+		return customerRepository.findAll();
 	}
-
 }

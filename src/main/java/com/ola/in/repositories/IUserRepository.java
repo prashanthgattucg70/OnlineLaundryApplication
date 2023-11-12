@@ -1,10 +1,13 @@
 package com.ola.in.repositories;
 
-import com.ola.in.entity.User;
-import com.ola.in.exceptions.NotFoundException;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
-public interface IUserRepository {
-	User signIn(User user)throws NotFoundException;
-	User signOut(User user);
-	User changePassword(String id, User user)throws NotFoundException;
+import com.ola.in.entity.User;
+
+@Repository
+public interface IUserRepository extends JpaRepository<User, String>{
+	@Query("Select u from User u where u.userId= ?1 and u.password= ?2")
+	User findByUserIdAndPassword(String user_id, String password);
 }

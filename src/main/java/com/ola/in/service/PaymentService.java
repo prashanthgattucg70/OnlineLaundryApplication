@@ -1,60 +1,67 @@
 package com.ola.in.service;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ola.in.entity.Payment;
+import com.ola.in.exceptions.NotFoundException;
 import com.ola.in.repositories.IPaymentRepository;
 @Service
 public class PaymentService implements IPaymentService {
-	
 	@Autowired
 	private IPaymentRepository paymentRepository;
 	
-	//Add payment
-	@Override
 	public Payment addPayment(Payment payment) {
- 
-		return paymentRepository.addPayment(payment);
+		paymentRepository.save(payment);
+		return payment;
 	}
 	
-	//Remove payment by id
-	@Override
-	public Payment removePayment(long id) throws Exception {
- 
-		return paymentRepository.removePayment(id);
+	public Payment removePayment(long id) throws Exception{
+		Optional<Payment> op = paymentRepository.findById(id);
+		if(op.isPresent()) {
+			Payment p = op.get();
+			return p;
+		}
+		else 
+			throw new NotFoundException("Payment id is not valid");
 	}
 	
-	//Update payment by id
-	@Override
-	public Payment updatePayment(long id, Payment payment) throws Exception {
- 
-		return paymentRepository.updatePayment(id, payment);
+	public Payment getPaymentDetails(long id) throws Exception{
+		Optional<Payment> op = paymentRepository.findById(id);
+		if(op.isPresent()) {
+			Payment p = op.get();
+			return p;
+		}
+		else 
+			throw new NotFoundException("Payment id is not valid");
 	}
-    
-	//Get payment details by id
-	@Override
-	public Payment getPaymentDetails(long id) throws Exception {
- 
-		return paymentRepository.getPaymentDetails(id);
+	public List<Payment> getCustomerPaymentDetails(String custId) throws Exception{
+			List<Payment>  op = paymentRepository.findByCustomerId(custId);
+			return op; 
+	}
+		
+	
+	public List<Payment> getAllPaymentDetails(){
+		List<Payment> p = paymentRepository.findAll();
+		return p; 
 	}
 	
-	//Get all payment details
-	@Override
-	public List<Payment> getAllPaymentDetails() {
- 
-		return paymentRepository.getAllPaymentDetails();
-	}
-	
-	//Get payment details by customerId
-	@Override
-	public List<Payment> getCustomerPaymentDetails(String custId) throws Exception {
- 
-		return paymentRepository.getCustomerPaymentDetails(custId);
-
+	public Payment updatePayment(long id, Payment payment)throws Exception{
+		Optional<Payment> op = paymentRepository.findById(id);
+		if(op.isPresent()) {
+			Payment p = op.get();
+			p.setPaymentId(payment.getPaymentId());
+			p.setCard(payment.getCard());
+			p.setStatus(payment.getStatus());
+			p.setType(payment.getType());
+			paymentRepository.save(p);
+			return p;
+		}
+		else
+			throw new NotFoundException("Payment id is not valid");
 	}
 	
 

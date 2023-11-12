@@ -1,34 +1,38 @@
-package com.ola.in.repositories;
+package com.ola.in.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.ola.in.entity.Customer;
 import com.ola.in.entity.CustomerItem;
-import com.ola.in.jpa.ICustomerItemJpa;
-import com.ola.in.jpa.ICustomerJpa;
 import com.ola.in.exceptions.NotFoundException;
+import com.ola.in.repositories.ICustomerItemRepository;
+import com.ola.in.repositories.ICustomerRepository;
 
-@Repository
-public class CustomerItemRepository implements ICustomerItemRepository{
-	@Autowired
-	private ICustomerItemJpa customeritemjpa;
+
+
+@Service
+
+public class ICustomerItemServiceImpl implements ICustomerItemService  {
 	
 	@Autowired
-	private ICustomerJpa customerjpa;
+	private ICustomerItemRepository customeritemRepository;
+	
+	@Autowired
+	private ICustomerRepository customerRepository;
 	
 	public CustomerItem addItem(CustomerItem item) {
-		customeritemjpa.save(item);
+		customeritemRepository.save(item);
 		return(item);
 	}	
 	public CustomerItem removeItem(long id) throws Exception{
-		Optional<CustomerItem> oc = customeritemjpa.findById(id);
+		Optional<CustomerItem> oc = customeritemRepository.findById(id);
 		if(oc.isPresent()) {
 			CustomerItem c=oc.get();
-			customeritemjpa.delete(c);
+			customeritemRepository.delete(c);
 			return c;
 		}
 		else
@@ -36,7 +40,7 @@ public class CustomerItemRepository implements ICustomerItemRepository{
 	}
 	
 	public CustomerItem updateItem(long id, CustomerItem item) throws Exception {	
-		Optional<CustomerItem> oc = customeritemjpa.findById(id);
+		Optional<CustomerItem> oc = customeritemRepository.findById(id);
 		if(oc.isPresent()) {
 			CustomerItem c= oc.get();
 			//c.setItemId(item.getItemId());
@@ -47,7 +51,7 @@ public class CustomerItemRepository implements ICustomerItemRepository{
 			c.setMaterial(item.getMaterial());
 			c.setName(item.getName());
 			c.setQuantity(item.getQuantity());
-			customeritemjpa.save(c);
+			customeritemRepository.save(c);
 			return c;
 		}
 		else
@@ -56,7 +60,7 @@ public class CustomerItemRepository implements ICustomerItemRepository{
 	}
 	
 	public CustomerItem getItem(long id)throws Exception {
-		Optional<CustomerItem> oc = customeritemjpa.findById(id);
+		Optional<CustomerItem> oc = customeritemRepository.findById(id);
 		if(oc.isPresent()) {
 			CustomerItem c = oc.get();
 			return c;
@@ -67,17 +71,14 @@ public class CustomerItemRepository implements ICustomerItemRepository{
 	}
 	
 	public List<CustomerItem> getItemsByCustomer(String customerId) throws Exception{
-		Optional<Customer> oc=customerjpa.findById(customerId);
+		Optional<Customer> oc=customerRepository.findById(customerId);
 		if(oc.isPresent()) {
 			Customer c = oc.get();
-			List<CustomerItem> cItem = customeritemjpa.findByCustomer(c);
+			List<CustomerItem> cItem = customeritemRepository.findByCustomer(c);
 			return cItem;
 		}
 		else 
 			throw new NotFoundException("Customerid is not valid");
 		}
-
 	
-	
-
 }

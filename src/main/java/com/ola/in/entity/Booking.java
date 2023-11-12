@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,12 +31,17 @@ public class Booking {
 	@Column(name="booking_id")
 	private long bookingId;
 	
+	@NotEmpty(message = "Empty Field Preffered Date")
+	@Future(message = "Invalid Preffered Date")
 	@Column(name="booking_date")
 	private LocalDate bookingDate;
 	
+	@NotEmpty(message = "Empty Field Preffered Time")
+	@Future(message = "Invalid Preffered Time")
 	@Column(name="booking_time")
-	private LocalTime bookingTime;
+	private LocalTime bookingTime;  
 	
+	@NotEmpty
 	@Column(name="service_type")
 	private String serviceType;
 	

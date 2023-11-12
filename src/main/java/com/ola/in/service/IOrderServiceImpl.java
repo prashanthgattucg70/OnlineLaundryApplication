@@ -1,39 +1,31 @@
-package com.ola.in.repositories;
+package com.ola.in.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-
-import com.ola.in.entity.Order;
-import com.ola.in.exceptions.NotFoundException;
-import com.ola.in.jpa.IOrderJpa;
-
-
-import org.springframework.stereotype.Repository;
-
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.ola.in.entity.Order;
 import com.ola.in.exceptions.NotFoundException;
-import com.ola.in.jpa.IOrderJpa;
+import com.ola.in.repositories.IOrderRepository;
 
-@Repository
-public class OrderRepository implements IOrderRepository{
+
+@Service
+public class IOrderServiceImpl implements IOrderService {
 	@Autowired
-	private IOrderJpa orderjpa;
+	private IOrderRepository orderRepository;
 	
 	public Order addOrder(Order order) {
-		orderjpa.save(order);
+		orderRepository.save(order);
 		return order;
 	}
 	
 	public Order removeOrder(long id) throws Exception{
-		Optional<Order> oo=orderjpa.findById(id);
+		Optional<Order> oo=orderRepository.findById(id);
 		if(oo.isPresent()) {
 			Order o = oo.get();
-			orderjpa.delete(o);
+			orderRepository.delete(o);
 			return o;
 		}
 		else
@@ -42,7 +34,7 @@ public class OrderRepository implements IOrderRepository{
 	}
 	
 	public Order updateOrder(long id, Order order)throws Exception {
-		Optional<Order> oo=orderjpa.findById(id);
+		Optional<Order> oo=orderRepository.findById(id);
 		if(oo.isPresent()) {
 			Order o=oo.get();
 			//o.setOrderId(order.getOrderId());
@@ -51,7 +43,7 @@ public class OrderRepository implements IOrderRepository{
 			//o.setBookingDetails(order.getBookingDetails());
 			//o.setCustomer(order.getCustomer());
 			o.setPaymentMethod(order.getPaymentMethod());
-			orderjpa.save(o);
+			orderRepository.save(o);
 			return o;
 		}
 		else
@@ -60,7 +52,7 @@ public class OrderRepository implements IOrderRepository{
 	}
 	
 	public Order getOrderDetails(long id)throws Exception {
-	    Optional<Order> oo=orderjpa.findById(id);
+	    Optional<Order> oo=orderRepository.findById(id);
 	    if(oo.isPresent()) {
 	    	Order o=oo.get();
 	    	return o;
@@ -70,12 +62,11 @@ public class OrderRepository implements IOrderRepository{
 	}
 	
 	public List<Order> getAllOrders(){
-		List<Order> o = orderjpa.findAll();
+		List<Order> o = orderRepository.findAll();
 		return o;
 	}
 	public List<Order> getOrderByCustomer(String custId){
-		List<Order> o = orderjpa.findbyCustomer(custId);
+		List<Order> o = orderRepository.findbyCustomer(custId);
 		return o;
 	}
-
 }
