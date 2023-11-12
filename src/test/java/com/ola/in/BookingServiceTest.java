@@ -46,7 +46,7 @@ public class BookingServiceTest {
 	
 	@Test
 	public void addBookingTest01() {
-		//addBookingTest01 method executed;
+		//addBookingTest01 method 
 		assertNotNull (bookingService.addBooking(booking));
 	}
 	
@@ -54,7 +54,7 @@ public class BookingServiceTest {
 	
 	@Test
 	public void updateBookingTest01() throws NotFoundException{
-		//updateBookingTest01 method executed;
+		//updateBookingTest01 method 
 		try {
 			bookingService.updateBooking(234, booking);
 		}
@@ -65,7 +65,7 @@ public class BookingServiceTest {
 	
 	@Test
 	public void updateBookingTest02() throws NotFoundException{
-		//updateBookingTest02 method executed;
+		//updateBookingTest02 method 
 		try {
 		assertNotNull(bookingService.updateBooking(1, booking));
 		}
@@ -77,7 +77,7 @@ public class BookingServiceTest {
 	
 	@Test
 	public void getBookingTest01() throws Exception{
-		//getBookingTest01 method executed;
+		//getBookingTest01 method 
 		try {
 			bookingService.getBooking(123);
 		}
@@ -87,7 +87,7 @@ public class BookingServiceTest {
 	}
 	@Test
 	public void getBookingTest02() throws Exception{
-		//getBookingTest02 method executed;
+		//getBookingTest02 method 
 			try {
 			assertNotNull(bookingService.getBooking(1));
 			}
@@ -99,13 +99,13 @@ public class BookingServiceTest {
 	
 	@Test
 	public void getAllBookingsTest01() {
-		//getAllBookingsest01 method executed;
+		//getAllBookingsest01 method 
 		assertNotNull (bookingService.getAllBookings());
 	}
 	
 	@Test
 	public void getBookingsByDate01() {
-		//getBookingsByDate01 method executed;
+		//getBookingsByDate01 method 
 			List<Booking> lb=(bookingService.getBookingsByDate(LocalDate.parse("2025-03-04")));
 			assertThat(lb, IsEmptyCollection.empty());
 			
@@ -113,7 +113,7 @@ public class BookingServiceTest {
 	
 	@Test
 	public void getBookingsByDate02() {
-		//getBookingsByDate02 method executed;
+		//getBookingsByDate02 method 
 			List<Booking> lb=(bookingService.getBookingsByDate(LocalDate.parse("2026-02-05")));
 			assertThat(lb, IsEmptyCollection.empty());
 			
@@ -121,7 +121,7 @@ public class BookingServiceTest {
 	
 	@Test
 	public void removeBookingTest01() throws Exception{
-		//removeBookingTest01 method executed;
+		//removeBookingTest01 method 
 		try {
 			bookingService.removeBooking(678);
 		}
@@ -132,7 +132,7 @@ public class BookingServiceTest {
 	}
 	@Test
 	public void removeBookingTest02() throws Exception{
-		//removeBookingTest02 method executed;
+		//removeBookingTest02 method 
 		try {
 			bookingService.removeBooking(500);
 		}

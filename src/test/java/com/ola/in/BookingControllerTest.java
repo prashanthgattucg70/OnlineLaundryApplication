@@ -44,7 +44,7 @@ public class BookingControllerTest {
 	
 	@Test
 	public void addBookingTest01() {
-		//addBookingTest01 method executed;
+		//addBookingTest01 method 
 		ResponseEntity<Object> response= bookingController.addBooking(booking);
 		assertEquals(HttpStatus.CREATED, response.getStatusCode());
 		
@@ -52,7 +52,7 @@ public class BookingControllerTest {
 	
 	@Test
 	public void updateBookingTest01() throws NotFoundException {
-		//updateBookingTest01 method executed;
+		//updateBookingTest01 method 
 		try {
 			ResponseEntity<Object> response= bookingController.updateBooking(1, booking);
 			assertEquals(HttpStatus.ACCEPTED, response.getStatusCode());
@@ -64,7 +64,7 @@ public class BookingControllerTest {
 	
 	@Test
 	public void getBookingTest01() throws Exception {
-		//getBookingTest01 method executed;
+		//getBookingTest01 method 
 		try {
 		ResponseEntity<Object> response= bookingController.getBooking(1);
 		assertEquals(HttpStatus.ACCEPTED, response.getStatusCode());
@@ -76,21 +76,21 @@ public class BookingControllerTest {
 	
 	@Test
 	public void getAllBookingTest01() {
-		//getAllBookingTest01 method executed;
+		//getAllBookingTest01 method 
 		ResponseEntity<Object> response= bookingController.getAllBookings();
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		}
 	
 	@Test
 	public void getBookingsByDateTest01() {
-		//getAllBookingTest01 method executed;
+		//getAllBookingTest01 method 
 		ResponseEntity<Object> response= bookingController.getBookingsByDate("2025-03-04");
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		}
 	
 	@Test
 	public void getBookingsByCustomersTest01() throws Exception {
-		//getAllBookingTest01 method executed;
+		//getAllBookingTest01 method 
 		ResponseEntity<Object> response= bookingController.getBookingsByCustomer("7");
 		assertEquals(HttpStatus.ACCEPTED, response.getStatusCode());
 		}
