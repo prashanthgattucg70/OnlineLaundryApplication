@@ -20,29 +20,24 @@ import lombok.NoArgsConstructor;
 public class Address {
 	
 	@Id
-	@NotEmpty
+	@NotEmpty(message = "Empty Field Door Number")
 	@Column(name="door_no")
 	private String doorNo;
 	
-	@NotEmpty
-	@Column(name="street")
+	@NotEmpty(message = "Empty Field Street")
 	private String street;
 	
-	@NotEmpty
-	@Column(name="area")
+	@NotEmpty(message = "Empty Field Area")
 	private String area;
 	
-	@NotEmpty
-	@Column(name="city")
+	@NotEmpty(message = "Empty Field City")
 	private String city;
 	
-	@NotEmpty
-	@Column(name="state")
+	@NotEmpty(message = "Empty Field State")
 	private String state;
 	
 	
-	@NotNull
+	@NotNull (message = "not valid pincode")
 	@Size(max=6, min=6)
-	@Column(name="pincode", nullable = false)
 	private int pincode;
 }

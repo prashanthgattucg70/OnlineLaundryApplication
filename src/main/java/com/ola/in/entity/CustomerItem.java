@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,11 +26,22 @@ public class CustomerItem {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="item_id")
 	private long itemId;
+	
+	@NotEmpty(message="name required")
 	private String name;
+	
+	@NotEmpty(message="color required")
 	private String color;
-	private String category;
+	
+	@NotEmpty(message="enter category")
+	private String category;	
+	
+	@NotEmpty(message="quantity reqired")
 	private int quantity;
+	
+	@NotEmpty(message="enter type of material")
 	private String material;
+	
 	private String description;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)

@@ -1,22 +1,22 @@
-package com.ola.in.repositories;
+package com.ola.in.service;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
 
 import com.ola.in.entity.User;
 import com.ola.in.exceptions.NotFoundException;
-import com.ola.in.jpa.IUserJpa;
+import com.ola.in.repositories.IUserRepository;
 
-@Repository
-public class UserRepository implements IUserRepository{
+@Service
+public class IUserServiceImpl implements IUserService{
 	@Autowired
-	private IUserJpa userjpa;
+	private IUserRepository userRepository;
 	
-
 	public User signIn(User user) throws NotFoundException{
-		User u = userjpa.findByUserIdAndPassword(user.getUserId(), user.getPassword());
+		User u = userRepository.findByUserIdAndPassword(user.getUserId(), user.getPassword());
 		
 		if(u==null) {
 			throw new NotFoundException("UserId or Password is not correct");
@@ -30,11 +30,11 @@ public class UserRepository implements IUserRepository{
 	}
 	
 	public User changePassword(String id, User user)  throws NotFoundException {
-		Optional<User> ou=userjpa.findById(id);
+		Optional<User> ou=userRepository.findById(id);
 		if(ou.isPresent()) {
 			User u=ou.get();
 			u.setPassword(user.getPassword());
-			userjpa.save(u);
+			userRepository.save(u);
 			return u;
 		}
 		else

@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ola.in.entity.Order;
 import com.ola.in.service.IOrderService;
 
+@RestController
+@RequestMapping("/orders")
 public class OrderController {
 	@Autowired
 	private IOrderService orderService;
@@ -69,7 +73,6 @@ public class OrderController {
 	@GetMapping("/get")
 	public ResponseEntity<Object> getAllOrders(){
 		ResponseEntity<Object> response=null;
-		
 		List<Order> lo= orderService.getAllOrders();
 		response=new ResponseEntity<Object>(lo,HttpStatus.OK);
 		return response;

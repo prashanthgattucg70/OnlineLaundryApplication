@@ -3,17 +3,17 @@ package com.ola.in.repositories;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
 import com.ola.in.entity.Booking;
-import com.ola.in.exceptions.NotFoundException;
 
 
+@Repository
+public interface IBookingRepository extends JpaRepository<Booking, Long>{
+	@Query("Select b from Booking b where b.customerItem.customer.userId= ?1")
+	List<Booking> findByCustomerDetails(String custId);
+	List<Booking> findByBookingDate(LocalDate date);
 
-public interface IBookingRepository {
-	Booking addBooking(Booking booking);
-	Booking removeBooking(long bookingId) throws Exception;
-	Booking updateBooking(long bookingId, Booking booking)throws NotFoundException;
-	Booking getBooking(long bookingId) throws Exception;
-	List<Booking> getAllBookings();
-	List<Booking> getBookingsByDate(LocalDate date);
-	List<Booking> getBookingsByCustomer(String customerId)throws Exception;	
 }
