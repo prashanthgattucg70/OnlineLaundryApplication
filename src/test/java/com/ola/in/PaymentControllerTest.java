@@ -26,7 +26,7 @@ public class PaymentControllerTest {
 	
 	@Test
 	public void addPaymentTest01() {
-		//"addPaymentTest01 method executed"
+		//addPaymentTest01 method
 		card=new Card(2,"MasterCard","1234567889567",LocalDate.parse("2026-09-06"),"SBI");
 		payment=new Payment(4,"Online","Completed","7",card);
 		assertEquals (paymentController.addPayment(payment).getStatusCode(),HttpStatus.CREATED);
@@ -34,7 +34,7 @@ public class PaymentControllerTest {
 	
 	@Test
 	public void updatePaymentTest01() throws Exception {
-		//"updatePaymentTest01 method executed"
+		//updatePaymentTest01 method
 		card=new Card(2,"MasterCard","1234567889567",LocalDate.parse("2026-09-06"),"SBI");
 		payment=new Payment(4,"Online","Completed","7",card);
 		try {
@@ -47,7 +47,7 @@ public class PaymentControllerTest {
 	
 	@Test
 	public void getPaymentTest01() throws Exception {
-		//"getPaymentTest01 method executed"
+		//getPaymentTest01 method
 		try {
 		assertEquals (paymentController.getPaymentDetails(4).getStatusCode(),HttpStatus.OK);
 		}
@@ -58,7 +58,7 @@ public class PaymentControllerTest {
 	
 	@Test
 	public void getAllPaymentDetailsTest01()  {
-		//"getAllPaymentDetailsTest01 method executed"
+		//getAllPaymentDetailsTest01 method
 		assertEquals (paymentController.getAllPaymentDetails().getStatusCode(),HttpStatus.OK);
 	}
 }

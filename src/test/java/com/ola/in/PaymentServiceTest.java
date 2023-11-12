@@ -27,7 +27,7 @@ public class PaymentServiceTest {
 	
 	@Test
 	public void addPaymentTest01() {
-		//addPaymentTest01 method executed"
+		//addPaymentTest01 method
 		card=new Card(2,"MasterCard","1234567889567",LocalDate.parse("2026-09-06"),"SBI");
 		payment=new Payment(4,"Online","Completed","7",card);
 		assertNotNull (paymentService.addPayment(payment));
@@ -35,7 +35,7 @@ public class PaymentServiceTest {
 	
 	@Test
 	public void removePaymentTest01() throws Exception{
-		//"removePaymentTest01 method executed"
+		//removePaymentTest01 method
 		try {
 			paymentService.removePayment(584);
 		}
@@ -46,7 +46,7 @@ public class PaymentServiceTest {
 	
 	@Test
 	public void removePaymentTest02() throws Exception{
-		//"removePaymentTes02 method executed"
+		//removePaymentTes02 method
 		try {
 			paymentService.removePayment(450);
 		}
@@ -57,7 +57,7 @@ public class PaymentServiceTest {
 	
 	@Test
 	public void updatePaymentTest01() throws Exception{
-		//"updatePaymentTest01 method executed"
+		//updatePaymentTest01 method 
 		card=new Card(2,"MasterCard","1234567889567",LocalDate.parse("2026-09-06"),"SBI");
 		payment=new Payment(4,"Online","Completed","7",card);
 		try {
@@ -70,7 +70,7 @@ public class PaymentServiceTest {
 	
 	@Test
 	public void updatePaymentTest02() throws Exception{
-		//"updatePaymentTest02 method executed"
+		//updatePaymentTest02 method
 		card=new Card(2,"MasterCard","1234567889567",LocalDate.parse("2026-09-06"),"SBI");
 		payment=new Payment(4,"Online","Completed","7",card);
 		try {
@@ -83,7 +83,7 @@ public class PaymentServiceTest {
 	
 	@Test
 	public void getPaymentTest01() throws Exception{
-		//getPaymentTest01 method executed"
+		//getPaymentTest01 method
 		try {
 			paymentService.getPaymentDetails(356);
 		}
