@@ -6,6 +6,8 @@ import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +27,7 @@ public class Order {
 	@Column(name="amount")
 	private double amount;
 	
-	@NotEmpty
+	//@NotEmpty
 	@FutureOrPresent(message = "Invalid Billing Date")
 	@Column(name="billing_date")
 	private LocalDate billingDate;
@@ -34,12 +36,14 @@ public class Order {
 	@Column(name="payment_method")
 	private String paymentMethod;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="user_id")
+	@JsonIgnore
 	private Customer customer;
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="booking_id")
+	@JsonIgnore
 	private Booking bookingDetails;
 	
 }

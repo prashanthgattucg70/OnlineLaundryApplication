@@ -38,7 +38,7 @@ public class Card {
 		@Column(name="card_number")
 		private String cardNumber;
 		
-		@NotEmpty
+		
 		@FutureOrPresent(message = "Invalid Expiry Date")
 		@Column(name="expiry_date")
 		private LocalDate expiryDate;

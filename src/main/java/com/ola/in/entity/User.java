@@ -45,7 +45,7 @@ public class User {
  */
 		
 	@NotEmpty(message = "Password Field Empty")
-	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$", message = "Invalid Password Rule")
+	//@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$", message = "Invalid Password Rule")
 	@Column(name="password")
 	private String password;
 }

@@ -37,7 +37,7 @@ public class OrderServiceTest {
 		address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
 		customer=new Customer("6","xyz","Anand",LocalDate.parse("1994-05-12"),address);
 		customerItem=new CustomerItem(7,"SalwarSuit","Black","Dress",10,"Silk","Foradults",customer);
-		booking=new Booking(1,LocalDate.parse("2021-05-10"),LocalTime.parse("05:00:00"),"Online", customerItem);
+		booking=new Booking(1,LocalDate.parse("2021-05-10"),"Online",LocalTime.parse("05:00:00"), customerItem);
 		order=new Order(2,5000.00,LocalDate.parse("2021-05-03"),"Online",customer,booking);
 		assertNotNull (orderService.addOrder(order));
 	}
@@ -70,7 +70,7 @@ public class OrderServiceTest {
 		address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
 		customer=new Customer("6","xyz","Anand",LocalDate.parse("1994-05-12"),address);
 		customerItem=new CustomerItem(7,"SalwarSuit","Black","Dress",10,"Silk","Foradults",customer);
-		booking=new Booking(1,LocalDate.parse("2021-05-10"),LocalTime.parse("05:00:00"),"Online", customerItem);
+		booking=new Booking(1,LocalDate.parse("2021-05-10"),"Online",LocalTime.parse("05:00:00"), customerItem);
 		order=new Order(1,5000.00,LocalDate.parse("2021-05-03"),"Online",customer,booking);
 		try {
 			orderService.updateOrder(457, order);
@@ -86,7 +86,7 @@ public class OrderServiceTest {
 		address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
 		customer=new Customer("6","xyz","Anand",LocalDate.parse("1994-05-12"),address);
 		customerItem=new CustomerItem(7,"SalwarSuit","Black","Dress",10,"Silk","Foradults",customer);
-		booking=new Booking(15,LocalDate.parse("2021-05-10"),LocalTime.parse("05:00:00"),"Online", customerItem);
+		booking=new Booking(15,LocalDate.parse("2021-05-10"),"Online",LocalTime.parse("05:00:00"), customerItem);
 		order=new Order(2,5000.00,LocalDate.parse("2021-05-03"),"Online",customer,booking);
 		try {
 		assertNotNull(orderService.updateOrder(2, order));

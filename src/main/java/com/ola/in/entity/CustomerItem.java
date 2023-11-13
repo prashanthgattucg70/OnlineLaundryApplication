@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,7 +39,7 @@ public class CustomerItem {
 	@NotEmpty(message="enter category")
 	private String category;	
 	
-	@NotEmpty(message="quantity reqired")
+	@NotNull(message="quantity reqired")
 	private int quantity;
 	
 	@NotEmpty(message="enter type of material")
@@ -44,8 +47,9 @@ public class CustomerItem {
 	
 	private String description;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="user_id")
+	@JsonIgnore
 	private Customer customer;
 		
 } 

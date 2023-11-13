@@ -14,6 +14,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,12 +42,13 @@ public class Customer extends User{
 	@Column(name="contact_no")
 	private String contactNo;
 	
-	@NotEmpty
+	
 	@Past(message = "Invalid Date of Birth")
 	@Column(name="dob")
 	private LocalDate dob;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="door_no")
+	@JsonIgnore
 	private Address address;
 }
