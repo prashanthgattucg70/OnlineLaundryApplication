@@ -10,7 +10,7 @@ import com.ola.in.entity.Payment;
 import com.ola.in.exceptions.NotFoundException;
 import com.ola.in.repositories.IPaymentRepository;
 @Service
-public class PaymentService implements IPaymentService {
+public class IPaymentServiceImpl implements IPaymentService {
 	@Autowired
 	private IPaymentRepository paymentRepository;
 	
