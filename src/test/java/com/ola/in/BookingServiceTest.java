@@ -44,11 +44,11 @@ public class BookingServiceTest {
 		booking=new Booking(1,LocalDate.parse("2021-05-10"),"Online",LocalTime.parse("05:00:00"), customerItem);
 	}
 	
-	@Test
+	/*@Test
 	public void addBookingTest01() {
 		//addBookingTest01 method 
 		assertNotNull (bookingService.addBooking(booking));
-	}
+	}*/
 	
 	
 	

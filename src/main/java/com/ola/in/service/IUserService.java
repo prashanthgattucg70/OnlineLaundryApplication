@@ -1,7 +1,5 @@
 package com.ola.in.service;
 
-import org.springframework.data.jpa.repository.Query;
-
 import com.ola.in.entity.User;
 import com.ola.in.exceptions.NotFoundException;
 

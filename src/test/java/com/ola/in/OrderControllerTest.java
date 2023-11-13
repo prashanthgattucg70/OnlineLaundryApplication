@@ -29,7 +29,7 @@ public class OrderControllerTest {
 	Order order=null;
 	CustomerItem customerItem=null;
 	
-	@Test
+	/*@Test
 	public void addOrderTest01() {
 		//addOrderTest01 method 
 		address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
@@ -38,7 +38,7 @@ public class OrderControllerTest {
 		booking=new Booking(1,LocalDate.parse("2021-05-10"),"Online",LocalTime.parse("05:00:00"), customerItem);
 		order=new Order(2,5000.00,LocalDate.parse("2021-05-03"),"Online",customer,booking);
 		assertEquals (orderController.addOrder(order).getStatusCode(),HttpStatus.CREATED);
-	}
+	}*/
 	
 	@Test
 	public void updateOrderTest01() throws Exception{

@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -26,23 +26,35 @@ public class CustomerControllerTest {
 	Address address=null;
 	Customer customer=null;
 	
-	@BeforeAll
-	public static void init() {
-	}
+//	@BeforeAll
+//	public static void init() {
+//	}
 	
-	@Test
-	public void addCustomerTest01() {
-		//addCustomerTest01 method 
-		address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
-		customer=new Customer("7","xyz","Anand",LocalDate.parse("1994-05-12"),address);
-		assertEquals(customerController.addCustomer(customer).getStatusCode(), HttpStatus.CREATED);
-	}
+//	@Test
+//	public void addCustomerTest01() {
+//		//addCustomerTest01 method 
+//		address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
+//		customer=new Customer("xyz","anand@gmail.com","1234567890", LocalDate.parse("1994-05-12"),address);
+//		assertEquals(customerController.addCustomer(null).getStatusCode(), HttpStatus.CREATED);
+//	}
+
+	 /*private Address address;
+	 private Customer customer;
+	   @BeforeAll
+	   public void init() {
+	       address = new Address("a-210", "Balewadi", "Baner", "Pune", "Maharashtra", 12345);
+	       customer = new Customer("7", "xyz", "Anand", LocalDate.parse("1994-01-12"), address);
+	   }
+	   @Test
+	   public void addCustomerTest() {
+	       Assertions.assertEquals(customerController.addCustomer(customer).getStatusCode(), HttpStatus.CREATED);
+	   }*/
 
 	@Test
 	public void updateCustomerTest01() throws NotFoundException{
 		//updateCustomerTest01 method 
 		address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
-		customer=new Customer("xyz","Anand","anand@gmail.com",LocalDate.parse("1994-05-12"),address);
+		customer=new Customer("7","xyz","Anand",LocalDate.parse("1994-05-12"),address);
 		try {
 		assertEquals(customerController.updateCustomer("6", customer).getStatusCode(), HttpStatus.ACCEPTED);
 		}

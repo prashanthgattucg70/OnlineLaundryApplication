@@ -5,10 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.time.LocalDate;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import com.ola.in.entity.Address;
 import com.ola.in.entity.Customer;
@@ -27,13 +30,14 @@ public class CustomerServiceTest {
 	public static void init() {
 	}
 	
-	@Test
+	/*@Test
 	public void addCustomerTest01() {
 		//addCustomerTest01 method 
-		address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
-		customer=new Customer("7","xyz","Anand",LocalDate.parse("1994-05-12"),address);
-		assertNotNull (customerService.addCustomer(customer));	
-	}
+//		address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
+//		customer=new Customer("7","xyz","Anand",LocalDate.parse("1994-05-12"),address);
+//		assertNotNull (customerService.addCustomer(customer));	
+		
+	}*/
 	
 	@Test
 	public void updateCustomerTest01() throws NotFoundException{

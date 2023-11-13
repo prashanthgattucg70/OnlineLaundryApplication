@@ -31,8 +31,8 @@ public class BookingController {
 	@PostMapping("/add")
 	public ResponseEntity<Object> addBooking(@RequestBody Booking booking) {
 		Booking b=bookingService.addBooking(booking);
-		ResponseEntity<Object> response=new ResponseEntity<Object>(b,HttpStatus.CREATED);
-		return response;
+		//ResponseEntity<Object> response=new ResponseEntity<Object>(b,HttpStatus.CREATED);
+		return new ResponseEntity<Object>(b,HttpStatus.CREATED);
 	}
 	//Remove all the booking by id
 	@DeleteMapping("/remove/{bookingId}")

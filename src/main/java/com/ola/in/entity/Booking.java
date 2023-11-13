@@ -13,12 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
-import javax.validation.constraints.NotEmpty;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,12 +39,10 @@ public class Booking {
 	
 	@Column(name="service_type")
 	private String serviceType;
+	
 	@Column(name="booking_time")
 	@JsonFormat(pattern="HH:mm:ss")
-	private LocalTime bookingTime;  
-	/*@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name="user_id")
-	private Customer customerDetails;*/
+	private LocalTime bookingTime; 
 	
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="customer_item_id")
