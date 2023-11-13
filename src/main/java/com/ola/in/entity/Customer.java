@@ -14,7 +14,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -49,6 +49,5 @@ public class Customer extends User{
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="door_no")
-	@JsonIgnore
 	private Address address;
 }

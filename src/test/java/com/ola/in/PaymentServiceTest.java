@@ -93,7 +93,7 @@ public class PaymentServiceTest {
 	}
 	@Test
 	public void getPaymentTest02() throws Exception{
-		//"getPaymentTest02 method executed"
+		//"getPaymentTest02 method 
 		try {
 			assertNotNull(paymentService.getPaymentDetails(4));
 		}
@@ -104,7 +104,7 @@ public class PaymentServiceTest {
 	
 	@Test
 	public void getAllPaymentDetailsTest01() {
-		//"getAllPaymentDetailsTest01 method executed"
+		//"getAllPaymentDetailsTest01 method
 		assertNotNull (paymentService.getAllPaymentDetails());
 	}
 }

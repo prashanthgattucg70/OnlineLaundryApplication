@@ -17,6 +17,7 @@ import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -34,30 +35,23 @@ public class Booking {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="booking_id")
 	private long bookingId;
-	
-	//@NotEmpty(message = "Empty Field Preffered Date")
+
+
 	@Future(message = "Invalid Preffered Date")
 	@Column(name="booking_date")
 	private LocalDate bookingDate;
 	
 	@Column(name="service_type")
 	private String serviceType;
-	//@NotEmpty(message = "Empty Field Preffered Time")
-	//@Future(message = "Invalid Preffered Time")
 	@Column(name="booking_time")
-	@DateTimeFormat
+	@JsonFormat(pattern="HH:mm:ss")
 	private LocalTime bookingTime;  
-	
-	//@NotEmpty
-	
-	
 	/*@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="user_id")
 	private Customer customerDetails;*/
 	
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="customer_item_id")
-	@JsonIgnore
 	private CustomerItem customerItem;
 
 }

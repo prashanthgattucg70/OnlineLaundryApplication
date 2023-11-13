@@ -7,7 +7,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

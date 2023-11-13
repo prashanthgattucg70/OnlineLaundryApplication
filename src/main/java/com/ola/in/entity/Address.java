@@ -38,6 +38,5 @@ public class Address {
 	
 	
 	@NotNull (message = "not valid pincode")
-	@Size(max=6, min=6)
 	private int pincode;
 }

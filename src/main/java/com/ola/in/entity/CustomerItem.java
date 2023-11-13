@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -49,7 +48,7 @@ public class CustomerItem {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="user_id")
-	@JsonIgnore
+	
 	private Customer customer;
 		
 } 

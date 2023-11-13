@@ -27,7 +27,6 @@ public class Order {
 	@Column(name="amount")
 	private double amount;
 	
-	//@NotEmpty
 	@FutureOrPresent(message = "Invalid Billing Date")
 	@Column(name="billing_date")
 	private LocalDate billingDate;
@@ -43,7 +42,7 @@ public class Order {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="booking_id")
-	@JsonIgnore
+	
 	private Booking bookingDetails;
 	
 }
