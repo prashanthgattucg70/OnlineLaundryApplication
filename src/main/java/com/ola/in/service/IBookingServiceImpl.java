@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.ola.in.entity.Booking;
 import com.ola.in.entity.Customer;
 import com.ola.in.exceptions.BookingNotFoundException;
-import com.ola.in.exceptions.NotFoundException;
 import com.ola.in.repositories.IBookingRepository;
 import com.ola.in.repositories.ICustomerRepository;
 

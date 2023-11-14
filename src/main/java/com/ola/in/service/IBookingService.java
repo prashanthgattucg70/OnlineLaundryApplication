@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.ola.in.entity.Booking;
-import com.ola.in.exceptions.NotFoundException;
 
 public interface IBookingService {
 	Booking addBooking(Booking booking);

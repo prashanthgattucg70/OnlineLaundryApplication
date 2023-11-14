@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
 public class Address {
 	
 	@Id
-	@NotEmpty(message = "Empty Field Door Number")
 	@Column(name="door_no")
 	private String doorNo;
 	

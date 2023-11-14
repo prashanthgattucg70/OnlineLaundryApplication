@@ -38,12 +38,9 @@ public class Payment {
 	@NotNull
 	@Column(name="customer_id")
 	private String customerId;
-	
-
 		
 	@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name="id")
-	
 	private Card card;
 
 }
