@@ -108,7 +108,7 @@ public class BookingController {
 	
 	//Get all the bookings for a specific date
 	@GetMapping("/getbydate/{date}")
-	public ResponseEntity<Object> getBookingsByDate(@PathVariable String date){
+	public ResponseEntity<Object> getBookingsByDate(@PathVariable String date)throws Exception{
 		ResponseEntity<Object> response=null;
 		LocalDate myDate=LocalDate.parse(date);
 		List<Booking> lb=bookingService.getBookingsByDate(myDate);

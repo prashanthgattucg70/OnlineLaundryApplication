@@ -1,5 +1,8 @@
 package com.ola.in.exceptions;
 
-public class PaymentNotFoundException {
+public class PaymentNotFoundException extends RuntimeException{
+	public PaymentNotFoundException(String msg) {
+		super(msg);
+	}
 
 }
