@@ -24,6 +24,20 @@ public class PaymentController {
 	@Autowired
 	private IPaymentService paymentService;
 	
+	/*{
+		  "paymentId": 9,
+		  "type": "cash",
+		  "status": "paid",
+		  "customerId": "2002",
+		  "card": {
+		    "id": 10,
+		    "cardName": "VISA",
+		    "cardNumber": "12345678909",
+		    "expiryDate": "2023-11-14",
+		    "bankName": "SBI"
+		  }
+		}*/
+	
 	//Add Payment
 		@PostMapping("/add")
 		public ResponseEntity<Object> addPayment(@RequestBody Payment payment) {
@@ -65,6 +79,7 @@ public class PaymentController {
 			return response;
 		}
 		
+		//Get all payment details by customer id
 		@GetMapping("/getbycustomer/{custId}")
 		public ResponseEntity<Object> getCustomerPaymentDetails(@PathVariable String custId)throws Exception{
 			ResponseEntity<Object> response = null;

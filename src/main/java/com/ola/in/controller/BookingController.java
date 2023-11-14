@@ -27,6 +27,33 @@ public class BookingController {
 	@Autowired
 	private IBookingService bookingService;
 	
+	
+	/*{
+	    "bookingId": 3,
+	    "bookingDate": "2023-11-15",
+	    "bookingTime": "10:20:00",
+	    "serviceType": "drycleaning"
+	  },
+	  "serviceType": "drycleaning",
+	  "customerItem": {
+	                  "itemId": 2,
+			  "name": "puma Tshirt",
+			  "color": "white",
+			  "category": "shirt",
+			  "quantity": 2,
+			  "material": "cotton",
+			  "description": "na",
+	    "customer": {
+	          "userId": "2002",
+		  "password": "Xyza@1234",
+		  "name": "sai kumar",
+		  "email": "sai@gmail.com",
+		  "contactNo": "1234567890",
+		  "dob": "2001-08-13"
+	    }
+	  }
+	}*/
+	
 	//Add a booking
 	@PostMapping("/add")
 	public ResponseEntity<Object> addBooking(@RequestBody Booking booking) {

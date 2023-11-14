@@ -24,6 +24,17 @@ public class CustomerController {
 	@Autowired
 	private ICustomerService customerService;
 	
+	/*{
+	  "userId": "1002",
+	  "password": "Xyza@1234",
+	  "name": "sai kumar",
+	  "email": "sai@gmail.com",
+	  "contactNo": "1234567890",
+	  "dob": "2001-08-13"
+	}
+	 */
+	
+	
 	//Add Custommer
 	@PostMapping("/add")
 	public ResponseEntity<Object> addCustomer(@RequestBody Customer customer) {
