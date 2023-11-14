@@ -23,7 +23,27 @@ import com.ola.in.service.ICustomerService;
 public class CustomerController {
 	@Autowired
 	private ICustomerService customerService;
-		
+
+	
+	/*{
+    "userId": "1005",
+    "password": "sai@123",
+    "name": "sai",
+    "email": "sai@gmail.com",
+    "contactNo": "1234567890",
+    "dob": "2000-12-18",
+    "address": {
+      "doorNo": "3-162",
+      "street": "colony",
+      "area": "hinjiwadi",
+      "city": "pune",
+      "state": "Maharastra",
+      "pincode": 5154001
+    }
+  }*/
+	
+	
+
 	//Add Custommer
 	@PostMapping("/add")
 	public ResponseEntity<Object> addCustomer(@RequestBody Customer customer) {

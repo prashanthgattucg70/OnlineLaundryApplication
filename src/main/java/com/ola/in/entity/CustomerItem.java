@@ -48,7 +48,6 @@ public class CustomerItem {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="user_id")
-	
 	private Customer customer;
 		
 } 

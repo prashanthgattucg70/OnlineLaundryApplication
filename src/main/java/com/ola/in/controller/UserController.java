@@ -19,6 +19,13 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 
+
+	
+	/*{
+  "userId": "1005",
+  "password": "sai@123"
+} */
+	
 	//Get sign in
 	@PostMapping("/getsignin")
 	public ResponseEntity<Object> signIn(@RequestBody User user) throws NotFoundException {

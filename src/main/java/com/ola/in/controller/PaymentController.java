@@ -24,6 +24,20 @@ public class PaymentController {
 	@Autowired
 	private IPaymentService paymentService;
 	
+	/*{
+    "paymentId": 75,
+    "type": "online",
+    "status": "success",
+    "customerId": "1004",
+    "card": {
+      "id": 76,
+      "cardName": "visa",
+      "cardNumber": "2345678909876",
+      "expiryDate": "2028-11-13",
+      "bankName": "icici"
+    }
+  } */
+	
 	//Add Payment
 		@PostMapping("/add")
 		public ResponseEntity<Object> addPayment(@RequestBody Payment payment) {

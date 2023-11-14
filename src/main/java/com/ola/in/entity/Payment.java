@@ -41,7 +41,7 @@ public class Payment {
 	
 
 		
-	@OneToOne (cascade = CascadeType.ALL, optional=true)
+	@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name="id")
 	
 	private Card card;
