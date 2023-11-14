@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ola.in.entity.Payment;
+import com.ola.in.exceptions.BookingNotFoundException;
 import com.ola.in.exceptions.NotFoundException;
+import com.ola.in.exceptions.PaymentNotFoundException;
 import com.ola.in.repositories.IPaymentRepository;
 @Service
 public class IPaymentServiceImpl implements IPaymentService {
@@ -19,26 +21,26 @@ public class IPaymentServiceImpl implements IPaymentService {
 		return payment;
 	}
 	
-	public Payment removePayment(long id) throws Exception{
+	public Payment removePayment(long id) {
 		Optional<Payment> op = paymentRepository.findById(id);
 		if(op.isPresent()) {
 			Payment p = op.get();
 			return p;
 		}
 		else 
-			throw new NotFoundException("Payment id is not valid");
+			throw new PaymentNotFoundException("Payment with ID: "+id+" not exist!!");
 	}
 	
-	public Payment getPaymentDetails(long id) throws Exception{
+	public Payment getPaymentDetails(long id){
 		Optional<Payment> op = paymentRepository.findById(id);
 		if(op.isPresent()) {
 			Payment p = op.get();
 			return p;
 		}
 		else 
-			throw new NotFoundException("Payment id is not valid");
+			throw new PaymentNotFoundException("Payment with ID: "+id+" not exist!!");
 	}
-	public List<Payment> getCustomerPaymentDetails(String custId) throws Exception{
+	public List<Payment> getCustomerPaymentDetails(String custId){
 			List<Payment>  op = paymentRepository.findByCustomerId(custId);
 			return op; 
 	}
@@ -49,7 +51,7 @@ public class IPaymentServiceImpl implements IPaymentService {
 		return p; 
 	}
 	
-	public Payment updatePayment(long id, Payment payment)throws Exception{
+	public Payment updatePayment(long id, Payment payment){
 		Optional<Payment> op = paymentRepository.findById(id);
 		if(op.isPresent()) {
 			Payment p = op.get();
@@ -61,7 +63,7 @@ public class IPaymentServiceImpl implements IPaymentService {
 			return p;
 		}
 		else
-			throw new NotFoundException("Payment id is not valid");
+			throw new PaymentNotFoundException("Payment with ID: "+id+" not exist!!");
 	}
 	
 
