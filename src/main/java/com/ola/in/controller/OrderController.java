@@ -23,6 +23,62 @@ public class OrderController {
 	@Autowired
 	private IOrderService orderService;
 	
+	
+	/*  {
+    "orderId": 72,
+    "amount": 1223,
+    "billingDate": "2023-11-14",
+    "paymentMethod": "string",
+    "customer": {
+      "userId": "1005",
+      "password": "sai@123",
+      "name": "sai",
+      "email": "sai@gmail.com",
+      "contactNo": "1234567890",
+      "dob": "2000-12-18",
+      "address": {
+        "doorNo": "3-162",
+        "street": "colony",
+        "area": "hinjiwadi",
+        "city": "pune",
+        "state": "Maharastra",
+        "pincode": 5154001
+      }
+    },
+    "bookingDetails": {
+      "bookingId": 71,
+      "bookingDate": "2023-11-16",
+      "serviceType": "drycleaning",
+      "bookingTime": "10:20:00",
+      "customerItem": {
+        "itemId": 70,
+        "name": "tshirt",
+        "color": "blue",
+        "category": "dress",
+        "quantity": 2,
+        "material": "cotton",
+        "description": "good material",
+        "customer": {
+          "userId": "1005",
+          "password": "sai@123",
+          "name": "sai",
+          "email": "sai@gmail.com",
+          "contactNo": "1234567890",
+          "dob": "2000-12-18",
+          "address": {
+            "doorNo": "3-162",
+            "street": "colony",
+            "area": "hinjiwadi",
+            "city": "pune",
+            "state": "Maharastra",
+            "pincode": 5154001
+          }
+        }
+      }
+    }
+  }*/
+	
+	
 	//Add Order
 	@PostMapping("/add")
 	public ResponseEntity<Object> addOrder(@RequestBody Order order) {

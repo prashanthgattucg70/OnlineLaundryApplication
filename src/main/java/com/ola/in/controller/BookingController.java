@@ -27,6 +27,39 @@ public class BookingController {
 	@Autowired
 	private IBookingService bookingService;
 	
+	/* {
+    "bookingId": 71,
+    "bookingDate": "2023-11-16",
+    "serviceType": "drycleaning",
+    "bookingTime": "10:20:00",
+    "customerItem": {
+      "itemId": 70,
+      "name": "tshirt",
+      "color": "blue",
+      "category": "dress",
+      "quantity": 2,
+      "material": "cotton",
+      "description": "good material",
+      "customer": {
+        "userId": "1005",
+        "password": "sai@123",
+        "name": "sai",
+        "email": "sai@gmail.com",
+        "contactNo": "1234567890",
+        "dob": "2000-12-18",
+        "address": {
+          "doorNo": "3-162",
+          "street": "colony",
+          "area": "hinjiwadi",
+          "city": "pune",
+          "state": "Maharastra",
+          "pincode": 5154001
+        }
+      }
+    }
+  }*/
+	
+	
 	//Add a booking
 	@PostMapping("/add")
 	public ResponseEntity<Object> addBooking(@RequestBody Booking booking) {

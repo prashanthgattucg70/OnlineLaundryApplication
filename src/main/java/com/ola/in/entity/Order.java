@@ -35,14 +35,14 @@ public class Order {
 	@Column(name="payment_method")
 	private String paymentMethod;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="user_id")
-	@JsonIgnore
+	
 	private Customer customer;
+	
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="booking_id")
-	
 	private Booking bookingDetails;
 	
 }

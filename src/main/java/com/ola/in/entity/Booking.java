@@ -44,7 +44,7 @@ public class Booking {
 	@JsonFormat(pattern="HH:mm:ss")
 	private LocalTime bookingTime; 
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="customer_item_id")
 	private CustomerItem customerItem;
 
