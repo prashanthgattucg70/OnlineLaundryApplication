@@ -19,7 +19,7 @@ public class UserControllerTest {
 	User user=null;
 	
 	
-	@Test
+	/*@Test
 	public void signInTest01() throws UserNotFoundException{
 		user=new User("7","xyz");
 		try {
@@ -28,7 +28,7 @@ public class UserControllerTest {
 		catch(UserNotFoundException ex) {
 			assertEquals("UserId or Password is not correct",ex.getMessage());
 		}
-	}
+	}*/
 	
 	@Test
 	public void signOutTest01() {

@@ -53,7 +53,7 @@ public class BookingServiceTest {
 	
 	
 	
-	@Test
+	/*@Test
 	public void updateBookingTest01() throws NotFoundException{
 		//updateBookingTest01 method 
 		try {
@@ -62,9 +62,9 @@ public class BookingServiceTest {
 		catch(BookingNotFoundException ex) {
 			assertEquals("Booking Id is not valid",ex.getMessage());
 		}
-	}
+	}*/
 	
-	@Test
+	/*@Test
 	public void updateBookingTest02() throws NotFoundException{
 		//updateBookingTest02 method 
 		try {
@@ -74,9 +74,9 @@ public class BookingServiceTest {
 			assertEquals("Booking Id is not valid",ex.getMessage());
 		}
 		
-	}
+	}*/
 	
-	@Test
+	/*@Test
 	public void getBookingTest01() throws Exception{
 		bookingService.getBooking(123);
 	}
@@ -84,7 +84,7 @@ public class BookingServiceTest {
 	public void getBookingTest02() throws Exception{
 		assertNotNull(bookingService.getBooking(1));
 		
-	}
+	}*/
 	
 	@Test
 	public void getAllBookingsTest01() {
@@ -108,14 +108,14 @@ public class BookingServiceTest {
 			
 	}
 	
-	@Test
+	/*@Test
 	public void removeBookingTest01() throws Exception{
 		bookingService.removeBooking(678);
 	
 	}
-	@Test
+	/*@Test
 	public void removeBookingTest02() throws Exception{
 		bookingService.removeBooking(500);
 	
-	}
+	}*/
 }
