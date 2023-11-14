@@ -34,8 +34,7 @@ public class Address {
 	
 	@NotEmpty(message = "Empty Field State")
 	private String state;
-	
-	
+		
 	@NotNull (message = "not valid pincode")
 	private int pincode;
 }

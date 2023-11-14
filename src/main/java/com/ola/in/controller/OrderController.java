@@ -23,20 +23,7 @@ public class OrderController {
 	@Autowired
 	private IOrderService orderService;
 	
-	/*{
-		  "orderId": 6,
-		  "amount": 200,
-		  "billingDate": "2023-11-14",
-		  "paymentMethod": "card",
-		  "customer": {
-		    "userId": "2002",
-		    "password": "Xyza@1234",
-		    "name": "Ram",
-		    "email": "ram@gmail.com",
-		    "contactNo": "9012741122",
-		    "dob": "2003-11-13"
-		  }
-		}*/
+	
 	
 	//Add Order
 	@PostMapping("/add")

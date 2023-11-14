@@ -15,5 +15,5 @@ public interface IBookingRepository extends JpaRepository<Booking, Long>{
 	@Query("Select b from Booking b where b.customerItem.customer.userId= ?1")
 	List<Booking> findByCustomerDetails(String custId);
 	List<Booking> findByBookingDate(LocalDate date);
-
 }
+ 

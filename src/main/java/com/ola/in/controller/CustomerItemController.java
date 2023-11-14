@@ -15,23 +15,7 @@ public class CustomerItemController {
 	@Autowired
 	private ICustomerItemService customerItemService;
 	
-	/*{
-		  "itemId": 2,
-		  "name": "puma Tshirt",
-		  "color": "white",
-		  "category": "shirt",
-		  "quantity": 2,
-		  "material": "cotton",
-		  "description": "na",
-		  "customer": {
-		    "userId": "2002",
-		    "password": "Xyza@1234",
-		    "name": "Ram",
-		    "email": "ram@gmail.com",
-		    "contactNo": "9012741122",
-		    "dob": "2003-11-13"
-		  }
-		}*/
+	
 	
 	//Add CustomerItem 
 	@PostMapping("/add")
