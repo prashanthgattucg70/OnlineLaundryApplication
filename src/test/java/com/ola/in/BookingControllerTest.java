@@ -19,6 +19,7 @@ import com.ola.in.entity.Address;
 import com.ola.in.entity.Booking;
 import com.ola.in.entity.Customer;
 import com.ola.in.entity.CustomerItem;
+import com.ola.in.exceptions.BookingNotFoundException;
 import com.ola.in.exceptions.NotFoundException;
 
 @SpringBootTest
@@ -57,7 +58,7 @@ public class BookingControllerTest {
 			ResponseEntity<Object> response= bookingController.updateBooking(1, booking);
 			assertEquals(HttpStatus.ACCEPTED, response.getStatusCode());
 		}
-		catch(NotFoundException ex) {
+		catch(BookingNotFoundException ex) {
 			assertEquals("Booking Id is not valid",ex.getMessage());
 		}
 	}
@@ -69,7 +70,7 @@ public class BookingControllerTest {
 		ResponseEntity<Object> response= bookingController.getBooking(1);
 		assertEquals(HttpStatus.ACCEPTED, response.getStatusCode());
 		}
-		catch(NotFoundException ex) {
+		catch(BookingNotFoundException ex) {
 			assertEquals("Booking id is not valid",ex.getMessage());
 		}
 	}

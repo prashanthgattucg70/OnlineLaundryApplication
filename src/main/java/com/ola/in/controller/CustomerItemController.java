@@ -15,6 +15,7 @@ public class CustomerItemController {
 	@Autowired
 	private ICustomerItemService customerItemService;
 	
+
 	/*{
   "itemId": 70,
   "name": "tshirt",
@@ -40,6 +41,7 @@ public class CustomerItemController {
     }
   }
 } */
+
 	
 	
 	//Add CustomerItem 

@@ -20,6 +20,7 @@ import com.ola.in.entity.Address;
 import com.ola.in.entity.Booking;
 import com.ola.in.entity.Customer;
 import com.ola.in.entity.CustomerItem;
+import com.ola.in.exceptions.BookingNotFoundException;
 import com.ola.in.exceptions.NotFoundException;
 import com.ola.in.service.IBookingService;
 
@@ -58,7 +59,7 @@ public class BookingServiceTest {
 		try {
 			bookingService.updateBooking(234, booking);
 		}
-		catch(NotFoundException ex) {
+		catch(BookingNotFoundException ex) {
 			assertEquals("Booking Id is not valid",ex.getMessage());
 		}
 	}
@@ -69,7 +70,7 @@ public class BookingServiceTest {
 		try {
 		assertNotNull(bookingService.updateBooking(1, booking));
 		}
-		catch(NotFoundException ex) {
+		catch(BookingNotFoundException ex) {
 			assertEquals("Booking Id is not valid",ex.getMessage());
 		}
 		
@@ -77,23 +78,11 @@ public class BookingServiceTest {
 	
 	@Test
 	public void getBookingTest01() throws Exception{
-		//getBookingTest01 method 
-		try {
-			bookingService.getBooking(123);
-		}
-		catch(NotFoundException ex) {
-			assertEquals("Booking id is not valid",ex.getMessage());
-		}
+		bookingService.getBooking(123);
 	}
 	@Test
 	public void getBookingTest02() throws Exception{
-		//getBookingTest02 method 
-			try {
-			assertNotNull(bookingService.getBooking(1));
-			}
-			catch(NotFoundException ex) {
-				assertEquals("Booking id is not valid",ex.getMessage());
-			}
+		assertNotNull(bookingService.getBooking(1));
 		
 	}
 	
@@ -121,24 +110,12 @@ public class BookingServiceTest {
 	
 	@Test
 	public void removeBookingTest01() throws Exception{
-		//removeBookingTest01 method 
-		try {
-			bookingService.removeBooking(678);
-		}
-		catch(NotFoundException ex) {
-		assertEquals("Booking id is not valid",ex.getMessage());
-		}
+		bookingService.removeBooking(678);
 	
 	}
 	@Test
 	public void removeBookingTest02() throws Exception{
-		//removeBookingTest02 method 
-		try {
-			bookingService.removeBooking(500);
-		}
-		catch(NotFoundException ex) {
-		assertEquals("Booking id is not valid",ex.getMessage());
-		}
+		bookingService.removeBooking(500);
 	
 	}
 }

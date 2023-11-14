@@ -23,6 +23,7 @@ import com.ola.in.service.ICustomerService;
 public class CustomerController {
 	@Autowired
 	private ICustomerService customerService;
+
 	
 	/*{
     "userId": "1005",
@@ -42,6 +43,7 @@ public class CustomerController {
   }*/
 	
 	
+
 	//Add Custommer
 	@PostMapping("/add")
 	public ResponseEntity<Object> addCustomer(@RequestBody Customer customer) {

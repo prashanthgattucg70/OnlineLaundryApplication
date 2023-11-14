@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Table(name="customers")
 @PrimaryKeyJoinColumn(referencedColumnName="user_id")
 public class Customer extends User{
-	
+	 
 	@NotEmpty(message = "Name Field Empty")
 	@Column(name="name")
 	private String name;
