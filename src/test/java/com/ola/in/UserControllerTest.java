@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 
 import com.ola.in.controller.UserController;
 import com.ola.in.entity.User;
-import com.ola.in.exceptions.NotFoundException;
+import com.ola.in.exceptions.UserNotFoundException;
 
 @SpringBootTest
 public class UserControllerTest {
@@ -20,12 +20,12 @@ public class UserControllerTest {
 	
 	
 	@Test
-	public void signInTest01() throws NotFoundException{
+	public void signInTest01() throws UserNotFoundException{
 		user=new User("7","xyz");
 		try {
 		assertEquals(userController.signIn(user).getStatusCode(),HttpStatus.ACCEPTED);
 		}
-		catch(NotFoundException ex) {
+		catch(UserNotFoundException ex) {
 			assertEquals("UserId or Password is not correct",ex.getMessage());
 		}
 	}
@@ -37,12 +37,12 @@ public class UserControllerTest {
 	}
 	
 	@Test
-	public void changePasswordTest01() throws NotFoundException{
+	public void changePasswordTest01() throws UserNotFoundException{
 		user=new User("7","xyz");
 		try {
 		assertEquals(userController.changePassword("7", user).getStatusCode(),HttpStatus.ACCEPTED);
 		}
-		catch(NotFoundException ex) {
+		catch(UserNotFoundException ex) {
 			assertEquals("User Id is not valid",ex.getMessage());
 		}
 		

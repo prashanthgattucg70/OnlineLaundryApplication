@@ -43,7 +43,7 @@ public class Card {
 		@Column(name="expiry_date")
 		private LocalDate expiryDate;
 		
-		@NotEmpty
+		@NotEmpty(message = "Bank Name Field Empty")
 		@Column(name="bank_name")
 		private String bankName;		
 }

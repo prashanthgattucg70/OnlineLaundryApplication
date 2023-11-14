@@ -25,7 +25,7 @@ public class IBookingServiceImpl implements IBookingService {
 	@Override
 	public Booking addBooking(Booking booking) {
 		bookingRepository .save(booking);
-		return null;
+		return booking; //null
 	}
 
 	public Booking removeBooking(long bookingId){

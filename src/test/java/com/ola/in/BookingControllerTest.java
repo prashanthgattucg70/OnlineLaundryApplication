@@ -59,7 +59,7 @@ public class BookingControllerTest {
 			assertEquals(HttpStatus.ACCEPTED, response.getStatusCode());
 		}
 		catch(BookingNotFoundException ex) {
-			assertEquals("Booking Id is not valid",ex.getMessage());
+			assertEquals("Booking with ID: "+booking.getBookingId()+" not exist!!",ex.getMessage());
 		}
 	}
 	
@@ -71,7 +71,7 @@ public class BookingControllerTest {
 		assertEquals(HttpStatus.ACCEPTED, response.getStatusCode());
 		}
 		catch(BookingNotFoundException ex) {
-			assertEquals("Booking id is not valid",ex.getMessage());
+			assertEquals("Booking with ID: "+booking.getBookingId()+" not exist!!",ex.getMessage());
 		}
 	}
 	
@@ -83,7 +83,7 @@ public class BookingControllerTest {
 		}
 	
 	@Test
-	public void getBookingsByDateTest01() {
+	public void getBookingsByDateTest01() throws Exception {
 		//getAllBookingTest01 method 
 		ResponseEntity<Object> response= bookingController.getBookingsByDate("2025-03-04");
 		assertEquals(HttpStatus.OK, response.getStatusCode());
