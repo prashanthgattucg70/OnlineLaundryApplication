@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
@@ -32,7 +33,7 @@ public class Booking {
 	@Column(name="booking_id")
 	private long bookingId;
 
-	
+
 	@Future(message = "Invalid Preffered Date")
 	@Column(name="booking_date")
 	private LocalDate bookingDate;
@@ -45,7 +46,7 @@ public class Booking {
 	@JsonFormat(pattern="HH:mm:ss")
 	private LocalTime bookingTime; 
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="customer_item_id")
 	private CustomerItem customerItem;
 
