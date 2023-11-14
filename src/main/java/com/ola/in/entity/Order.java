@@ -39,7 +39,6 @@ public class Order {
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="user_id")
-	
 	private Customer customer;
 	
 	

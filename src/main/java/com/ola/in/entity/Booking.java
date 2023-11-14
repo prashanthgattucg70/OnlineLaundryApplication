@@ -15,7 +15,10 @@ import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
+
+
 import javax.validation.constraints.NotNull;
+
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -41,6 +44,7 @@ public class Booking {
 	@Column(name="booking_date")
 	private LocalDate bookingDate;
 	
+	@NotEmpty(message = "Service type required")
 	@Column(name="service_type")
 	private String serviceType;
 	

@@ -48,7 +48,6 @@ public class Customer extends User{
 	private LocalDate dob;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	//@JsonIgnore
 	@JoinColumn(name="door_no")
 	private Address address;
 }
