@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ola.in.entity.Booking;
 import com.ola.in.entity.Customer;
+import com.ola.in.exceptions.BookingNotFoundException;
 import com.ola.in.exceptions.NotFoundException;
 import com.ola.in.repositories.IBookingRepository;
 import com.ola.in.repositories.ICustomerRepository;
@@ -28,18 +29,11 @@ public class IBookingServiceImpl implements IBookingService {
 		return null;
 	}
 
-	public Booking removeBooking(long bookingId) throws Exception{
-		Optional<Booking> ob=bookingRepository .findById(bookingId);
-		if(ob.isPresent()) {
-			Booking b= ob.get();
-			bookingRepository .delete(b);
-			return b;
-		}
-		else
-			throw new NotFoundException("Booking id is not valid");
+	public Booking removeBooking(long bookingId){
+		return bookingRepository .findById(bookingId).orElseThrow(()->new BookingNotFoundException("Booking with ID: "+bookingId+" not exist!!"));
 	}
 	
-	public Booking updateBooking(long bookingId, Booking booking) throws NotFoundException{
+	public Booking updateBooking(long bookingId, Booking booking){
 		Optional<Booking> ob = bookingRepository .findById(bookingId);
 		
 		if(ob.isPresent()) {
@@ -52,20 +46,12 @@ public class IBookingServiceImpl implements IBookingService {
 		return b;
 	}
 		else
-			throw new NotFoundException("Booking Id is not valid");
+			throw new BookingNotFoundException("Booking with ID: "+bookingId+" not exist!!");
 	}
 	
-	public Booking getBooking(long bookingId) throws Exception {
-		Optional<Booking> ob = bookingRepository .findById((bookingId));
-		if(ob.isPresent()) {
-			Booking b=ob.get();
-			return b;
-		}
-		else 
-			throw new NotFoundException("Booking id is not valid");
-		
+	public Booking getBooking(long bookingId){
+		return bookingRepository .findById((bookingId)).orElseThrow(()->new BookingNotFoundException("Booking with ID: "+bookingId+" not exist!!"));
 	}
-	
 	public List<Booking> getAllBookings(){
 		return bookingRepository .findAll();
 	}
@@ -74,15 +60,14 @@ public class IBookingServiceImpl implements IBookingService {
 		return bookingRepository .findByBookingDate(date);
 	}
 	
-	public List<Booking> getBookingsByCustomer(String customerId) throws Exception{
+	public List<Booking> getBookingsByCustomer(String customerId){
 		Optional<Customer> oc = customerRepository .findById(customerId);
 		if(oc.isPresent()) {
 			return bookingRepository .findByCustomerDetails(customerId);
 		}
 		else 
-			throw new NotFoundException("customer id is not valid");
+			throw new BookingNotFoundException("Booking with ID: "+customerId+" not exist!!");
 		
 	}
-
 	
 }

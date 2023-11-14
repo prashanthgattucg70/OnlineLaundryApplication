@@ -18,6 +18,8 @@ import com.ola.in.service.IUserService;
 public class UserController {
 	@Autowired
 	private IUserService userService;
+
+
 	
 	/*{
   "userId": "1005",

@@ -27,6 +27,9 @@ public class BookingController {
 	@Autowired
 	private IBookingService bookingService;
 	
+
+	
+
 	/* {
     "bookingId": 71,
     "bookingDate": "2023-11-16",
@@ -58,6 +61,7 @@ public class BookingController {
       }
     }
   }*/
+
 	
 	
 	//Add a booking
@@ -69,7 +73,7 @@ public class BookingController {
 	}
 	//Remove all the booking by id
 	@DeleteMapping("/remove/{bookingId}")
-	public ResponseEntity<Object> removeBooking(@PathVariable long bookingId) throws Exception {
+	public ResponseEntity<Object> removeBooking(@PathVariable long bookingId){
 		ResponseEntity<Object> response=null;
 		Booking b = bookingService.removeBooking(bookingId);
 		response=new ResponseEntity<Object>(b,HttpStatus.OK);
@@ -78,7 +82,7 @@ public class BookingController {
 	
 	//Update all the booking by id
 	@PutMapping("/update/{bookingId}")
-	public ResponseEntity<Object> updateBooking(@PathVariable long bookingId, @RequestBody Booking booking) throws NotFoundException {
+	public ResponseEntity<Object> updateBooking(@PathVariable long bookingId, @RequestBody Booking booking){
 		ResponseEntity<Object>response=null;
 		Booking b = bookingService.updateBooking(bookingId, booking);
 		response=new ResponseEntity<>(b, HttpStatus.ACCEPTED);
@@ -87,7 +91,7 @@ public class BookingController {
 
 	//Get by booking id
 	@GetMapping("/get/{bookingId}")
-	public ResponseEntity <Object> getBooking(@PathVariable long bookingId) throws Exception{
+	public ResponseEntity <Object> getBooking(@PathVariable long bookingId){
 		ResponseEntity <Object>response=null;
 		Booking b=bookingService.getBooking(bookingId);
 		response=new ResponseEntity<>(b, HttpStatus.ACCEPTED);		
@@ -114,7 +118,7 @@ public class BookingController {
 	
 	//Get bookings by customer id
 	@GetMapping("/getbycustomer/{customerId}")
-	public ResponseEntity<Object> getBookingsByCustomer(@PathVariable String customerId) throws Exception{
+	public ResponseEntity<Object> getBookingsByCustomer(@PathVariable String customerId){
 		ResponseEntity<Object>response=null;
 		List<Booking> lb=bookingService.getBookingsByCustomer(customerId);
 		response=new ResponseEntity<>(lb, HttpStatus.ACCEPTED);		

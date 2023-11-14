@@ -79,6 +79,7 @@ public class PaymentController {
 			return response;
 		}
 		
+		//Get all payment details by customer id
 		@GetMapping("/getbycustomer/{custId}")
 		public ResponseEntity<Object> getCustomerPaymentDetails(@PathVariable String custId)throws Exception{
 			ResponseEntity<Object> response = null;
