@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ola.in.entity.User;
 import com.ola.in.exceptions.NotFoundException;
+import com.ola.in.exceptions.UserNotFoundException;
 import com.ola.in.repositories.IUserRepository;
 
 @Service
@@ -15,11 +16,11 @@ public class IUserServiceImpl implements IUserService{
 	@Autowired
 	private IUserRepository userRepository;
 	
-	public User signIn(User user) throws NotFoundException{
-		User u = userRepository.findByUserIdAndPassword(user.getUserId(), user.getPassword());
+	public User signIn(User user) throws UserNotFoundException{
+		User u = userRepository.findByUserIdAndPassword(user.getUserId(),user.getPassword());
 		
 		if(u==null) {
-			throw new NotFoundException("UserId or Password is not correct");
+			throw new UserNotFoundException("check password and userId");
 		}
 		return u;
 		
@@ -29,7 +30,7 @@ public class IUserServiceImpl implements IUserService{
 		return user;
 	}
 	
-	public User changePassword(String id, User user)  throws NotFoundException {
+	public User changePassword(String id, User user) throws UserNotFoundException{
 		Optional<User> ou=userRepository.findById(id);
 		if(ou.isPresent()) {
 			User u=ou.get();
@@ -38,7 +39,6 @@ public class IUserServiceImpl implements IUserService{
 			return u;
 		}
 		else
-			throw new NotFoundException("User Id is not valid");
-		
+			throw new UserNotFoundException("User Id is not valid");	
 	}
 }

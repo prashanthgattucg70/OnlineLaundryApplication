@@ -19,23 +19,10 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 		return new ResponseEntity<String>(pnfe.getLocalizedMessage(),HttpStatus.NOT_FOUND);
 	}
 	
-	
-	
-	
-	
-//	@ExceptionHandler(BookingNotFoundException.class)
-//	public ResponseEntity<String> handleBookingNotFoundException(){
-//		
-//	}
-//	
-//	@ExceptionHandler(BookingNotFoundException.class)
-//	public ResponseEntity<String> handleBookingNotFoundException(){
-//		
-//	}
-//	
-//	@ExceptionHandler(BookingNotFoundException.class)
-//	public ResponseEntity<String> handleBookingNotFoundException(){
-//		
-//	}
+
+	@ExceptionHandler(UserNotFoundException.class)
+	public ResponseEntity<String> handleUserNotFoundException(UserNotFoundException unfe){
+		return new ResponseEntity<String>(unfe.getLocalizedMessage(),HttpStatus.NOT_FOUND);
+	}
 
 }

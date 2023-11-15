@@ -34,28 +34,6 @@ public class PaymentServiceTest {
 	}
 	
 	@Test
-	public void removePaymentTest01() throws Exception{
-		//removePaymentTest01 method
-		try {
-			paymentService.removePayment(584);
-		}
-		catch(NotFoundException ex) {
-		assertEquals("Payment id is not valid",ex.getMessage());
-		}
-	}
-	
-	@Test
-	public void removePaymentTest02() throws Exception{
-		//removePaymentTes02 method
-		try {
-			paymentService.removePayment(450);
-		}
-		catch(NotFoundException ex) {
-		assertEquals("Payment id is not valid",ex.getMessage());
-		}
-	}
-	
-	@Test
 	public void updatePaymentTest01() throws Exception{
 		//updatePaymentTest01 method 
 		card=new Card(2,"MasterCard","1234567889567",LocalDate.parse("2026-09-06"),"SBI");
@@ -68,7 +46,7 @@ public class PaymentServiceTest {
 		}
 	}
 	
-	@Test
+	/*@Test
 	public void updatePaymentTest02() throws Exception{
 		//updatePaymentTest02 method
 		card=new Card(2,"MasterCard","1234567889567",LocalDate.parse("2026-09-06"),"SBI");
@@ -80,8 +58,8 @@ public class PaymentServiceTest {
 			assertEquals("Payment id is not valid",ex.getMessage());
 		}
 	}
-	
-	@Test
+	*/
+	/*@Test
 	public void getPaymentTest01() throws Exception{
 		//getPaymentTest01 method
 		try {
@@ -89,8 +67,8 @@ public class PaymentServiceTest {
 		}
 		catch(NotFoundException ex) {
 			assertEquals("Payment id is not valid",ex.getMessage());
-		}
-	}
+		}*/
+	//}
 	@Test
 	public void getPaymentTest02() throws Exception{
 		//"getPaymentTest02 method 

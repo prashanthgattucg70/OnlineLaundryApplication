@@ -7,7 +7,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,7 +39,6 @@ public class Order {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="user_id")
 	private Customer customer;
-	
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="booking_id")

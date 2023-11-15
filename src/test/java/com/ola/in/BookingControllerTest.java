@@ -59,7 +59,7 @@ public class BookingControllerTest {
 			assertEquals(HttpStatus.ACCEPTED, response.getStatusCode());
 		}
 		catch(BookingNotFoundException ex) {
-			assertEquals("Booking Id is not valid",ex.getMessage());
+			assertEquals("Booking with ID: "+booking.getBookingId()+" not exist!!",ex.getMessage());
 		}
 	}
 	
@@ -71,7 +71,7 @@ public class BookingControllerTest {
 		assertEquals(HttpStatus.ACCEPTED, response.getStatusCode());
 		}
 		catch(BookingNotFoundException ex) {
-			assertEquals("Booking id is not valid",ex.getMessage());
+			assertEquals("Booking with ID: "+booking.getBookingId()+" not exist!!",ex.getMessage());
 		}
 	}
 	

@@ -12,13 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 
 
-import javax.validation.constraints.NotNull;
 
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -40,7 +39,6 @@ public class Booking {
 
 	
 	@Future(message = "Invalid Preffered Date")
-	//@NotEmpty(message="enter a date")
 	@Column(name="booking_date")
 	private LocalDate bookingDate;
 	
@@ -52,7 +50,7 @@ public class Booking {
 	@JsonFormat(pattern="HH:mm:ss")
 	private LocalTime bookingTime; 
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="customer_item_id")
 	private CustomerItem customerItem;
 
