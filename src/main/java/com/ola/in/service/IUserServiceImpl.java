@@ -19,7 +19,7 @@ public class IUserServiceImpl implements IUserService{
 	public User signIn(User user) throws UserNotFoundException{
 		User u = userRepository.findByUserIdAndPassword(user.getUserId(),user.getPassword());
 		
-		if(u.getUserId()==null) {
+		if(u==null) {
 			throw new UserNotFoundException("check password and userId");
 		}
 		return u;

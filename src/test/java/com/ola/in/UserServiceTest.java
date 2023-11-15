@@ -18,46 +18,22 @@ public class UserServiceTest {
 	
 	User user=null;
 	
-	
-	/*@Test
-	public void signInTest01() throws UserNotFoundException{
-		//signInTest1 method 
-		user=new User("386","jsdeus");
-		try {
-		userService.signIn(user);
-		}
-		catch(UserNotFoundException ex) {
-		assertEquals("UserId or Password is not correct",ex.getMessage());
-		}
-	}
 	@Test
-	public void signInTest02() throws UserNotFoundException{
-		//signInTest2 method 
-		user=new User("7","xyz");
-		try {
-		assertNotNull(userService.signIn(user));
-		}
-		catch(UserNotFoundException ex) {
-		assertEquals("UserId or Password is not correct",ex.getMessage());
-		}
-	}*/
-	
-	@Test
+	//signOutTest1 method 
 	public void signOutTest01() {
-		//signOutTest1 method 
 		user=new User("386","jsdeus");
 		assertEquals(userService.signOut(user),user);
 	}
 	@Test
+	//signOutTest2 method 
 	public void signOutTest02() {
-		//signOutTest2 method 
 		user=new User("7","xyz");
 		assertEquals(userService.signOut(user),user);
 	}
 	
 	@Test
+	//changePasswordtTest1 method 
 	public void changePasswordTest01() throws UserNotFoundException{
-		//changePasswordtTest1 method 
 		user=new User("386","jsdeus");
 		try {
 			userService.changePassword("639", user);
@@ -67,8 +43,8 @@ public class UserServiceTest {
 		}
 	}
 	@Test
+	//changePasswordTest1 method 
 	public void changePasswordgTest02() throws UserNotFoundException{
-		//changePasswordTest1 method 
 		user=new User("7","xyz");
 		try {
 		assertNotNull(userService.changePassword("7", user));

@@ -33,28 +33,6 @@ public class PaymentServiceTest {
 		assertNotNull (paymentService.addPayment(payment));
 	}
 	
-	/*@Test
-	public void removePaymentTest01() throws Exception{
-		//removePaymentTest01 method
-		try {
-			paymentService.removePayment(584);
-		}
-		catch(NotFoundException ex) {
-		assertEquals("Payment id is not valid",ex.getMessage());
-		}
-	}*/
-	
-	/*@Test
-	public void removePaymentTest02() throws Exception{
-		//removePaymentTes02 method
-		try {
-			paymentService.removePayment(450);
-		}
-		catch(NotFoundException ex) {
-		assertEquals("Payment id is not valid",ex.getMessage());
-		}
-	}
-	*/
 	@Test
 	public void updatePaymentTest01() throws Exception{
 		//updatePaymentTest01 method 

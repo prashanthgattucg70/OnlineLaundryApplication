@@ -45,47 +45,6 @@ public class BookingServiceTest {
 		booking=new Booking(1,LocalDate.parse("2021-05-10"),"Online",LocalTime.parse("05:00:00"), customerItem);
 	}
 	
-	/*@Test
-	public void addBookingTest01() {
-		//addBookingTest01 method 
-		assertNotNull (bookingService.addBooking(booking));
-	}*/
-	
-	
-	
-	/*@Test
-	public void updateBookingTest01() throws NotFoundException{
-		//updateBookingTest01 method 
-		try {
-			bookingService.updateBooking(234, booking);
-		}
-		catch(BookingNotFoundException ex) {
-			assertEquals("Booking Id is not valid",ex.getMessage());
-		}
-	}*/
-	
-	/*@Test
-	public void updateBookingTest02() throws NotFoundException{
-		//updateBookingTest02 method 
-		try {
-		assertNotNull(bookingService.updateBooking(1, booking));
-		}
-		catch(BookingNotFoundException ex) {
-			assertEquals("Booking Id is not valid",ex.getMessage());
-		}
-		
-	}*/
-	
-	/*@Test
-	public void getBookingTest01() throws Exception{
-		bookingService.getBooking(123);
-	}
-	@Test
-	public void getBookingTest02() throws Exception{
-		assertNotNull(bookingService.getBooking(1));
-		
-	}*/
-	
 	@Test
 	public void getAllBookingsTest01() {
 		//getAllBookingsest01 method 
@@ -107,15 +66,4 @@ public class BookingServiceTest {
 			assertThat(lb, IsEmptyCollection.empty());
 			
 	}
-	
-	/*@Test
-	public void removeBookingTest01() throws Exception{
-		bookingService.removeBooking(678);
-	
-	}
-	/*@Test
-	public void removeBookingTest02() throws Exception{
-		bookingService.removeBooking(500);
-	
-	}*/
 }

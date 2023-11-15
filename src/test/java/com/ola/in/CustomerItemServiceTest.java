@@ -117,16 +117,6 @@ public class CustomerItemServiceTest {
 				assertEquals("CustomerItem is not valid",ex.getMessage());
 			}
 		}
-		
-		/*@Test
-		public void addItemTest01() {
-			//addItemTest01 method 
-			address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
-			customer=new Customer("6","xyz","Anand",LocalDate.parse("1994-05-12"),address);
-			customerItem=new CustomerItem(7,"SalwarSuit","Black","Dress",10,"Silk","Foradults",customer);
-			assertNotNull (customerItemService.addItem(customerItem));
-		}*/
-		
 	}
 
 	

@@ -30,15 +30,6 @@ public class CustomerServiceTest {
 	public static void init() {
 	}
 	
-	/*@Test
-	public void addCustomerTest01() {
-		//addCustomerTest01 method 
-//		address=new Address("a-210","Balewadi","Baner","Pune","Maharashtra",12345);
-//		customer=new Customer("7","xyz","Anand",LocalDate.parse("1994-05-12"),address);
-//		assertNotNull (customerService.addCustomer(customer));	
-		
-	}*/
-	
 	@Test
 	public void updateCustomerTest01() throws NotFoundException{
 		//updateCustomerTest01 method 
